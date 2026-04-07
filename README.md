@@ -27,13 +27,13 @@ where, we have,
  
 Variable Breakdown:
 
-==>$​\Pi$ (Pi): An $(N \times 1)$ vector of Implied Equilibrium Returns. This represents what the market "thinks" the returns should be to justify current prices.
+==> $​\Pi$ (Pi): An $(N \times 1)$ vector of Implied Equilibrium Returns. This represents what the market "thinks" the returns should be to justify current prices.
 
-==>$​\lambda$ (Lambda): A Risk Aversion Coefficient (Scalar). It represents the market's "Risk-Reward" trade-off. A standard institutional value is 3.0.
+==> $​\lambda$ (Lambda): A Risk Aversion Coefficient (Scalar). It represents the market's "Risk-Reward" trade-off. A standard institutional value is 3.0.
 
-==>​$\Sigma$ (Sigma): An $(N \times N)$ Covariance Matrix. This captures the volatility of each asset and the correlations between them.
+==>​ $\Sigma$ (Sigma): An $(N \times N)$ Covariance Matrix. This captures the volatility of each asset and the correlations between them.
 
-==>$​w_{mkt}$: An $(N \times 1)$ vector of Market Capitalization Weights.
+==> $​w_{mkt}$: An $(N \times 1)$ vector of Market Capitalization Weights.
 
 B. The Bayesian Formula (The Blend)
 
@@ -41,9 +41,9 @@ B. The Bayesian Formula (The Blend)
 
  $$ \mu_{BL} = [(\tau\Sigma)^{-1} + P^T\Omega^{-1}P]^{-1} [(\tau\Sigma)^{-1}\Pi + P^T\Omega^{-1}Q] $$
 
-==>$​P$ (Pick Matrix): Maps your views to specific assets.
+==> $​P$ (Pick Matrix): Maps your views to specific assets.
 
-==>$​\Omega$ (Uncertainty): A diagonal matrix representing the variance of each view (Confidence).
+==> $​\Omega$ (Uncertainty): A diagonal matrix representing the variance of each view (Confidence).
 
 ==> $\tau$ (Scalar): Determines the weight given to the market prior versus the views.
 
