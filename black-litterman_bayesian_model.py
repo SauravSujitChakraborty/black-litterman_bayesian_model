@@ -49,5 +49,5 @@ for i, asset in enumerate(assets):
     print(f"{asset:<10} | {pi[i]:<15.2%} | {adjusted_returns[i]:.2%}")
 
 print("-" * 50)
-print("Quant Note: BL prevents extreme 'All-or-Nothing' weights")
+print("Note: BL prevents extreme 'All-or-Nothing' weights")
 print("by anchoring the optimization to the Market Equilibrium.")
