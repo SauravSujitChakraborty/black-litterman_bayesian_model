@@ -45,7 +45,7 @@ B. The Bayesian Formula (The Blend)
 
 ==> $​\Omega$ (Uncertainty): A diagonal matrix representing the variance of each view (Confidence).
 
-==>  ​$\tau$ (Scalar): Determines the weight given to the market prior versus the views.
+==> $\tau$ (Scalar): Determines the weight given to the market prior versus the views.
 
 Computational Complexity 
 
