@@ -11,6 +11,9 @@ The Core Problem: The "MVO Sensitivity" Trap
 ​🔬 Mathematical Framework
 ​A. Reverse Optimization (The Prior)
 ​Instead of guessing returns, we assume the current Market Cap weights ($w_{mkt}$) are optimal. We solve for the Implied Equilibrium Returns (Π):
+
+ $$ \Pi = \lambda \Sigma w_{mkt} $$
+ 
        
        Π = λΣ $w_{mkt}$
        
