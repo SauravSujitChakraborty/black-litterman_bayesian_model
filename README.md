@@ -1,6 +1,6 @@
 # black-litterman_bayesian_model
 
-This project was made by me duribg Oct'25, preserved and finally published on Apr 7, 2026 
+This project was made by me during Oct'25, preserved and finally published on Apr 7, 2026 
 
 THEORY :
 
@@ -45,7 +45,7 @@ B. The Bayesian Formula (The Blend)
 
 ==> $​\Omega$ (Uncertainty): A diagonal matrix representing the variance of each view (Confidence).
 
-==> ​$\tau$ (Scalar): Determines the weight given to the market prior versus the views.
+==>  ​$\tau$ (Scalar): Determines the weight given to the market prior versus the views.
 
 Computational Complexity 
 
