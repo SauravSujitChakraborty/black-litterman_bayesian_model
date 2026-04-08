@@ -1,4 +1,4 @@
-# black-litterman_bayesian_model
+# black-litterman_bayesian_model 
 
 This project was made by me during Oct'25, preserved and finally published on Apr 7, 2026 
 
