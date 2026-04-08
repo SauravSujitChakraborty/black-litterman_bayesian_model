@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np 
 import pandas as pd
 
 def black_litterman_blend(w_mkt, cov, views, confidences, tau=0.05):
