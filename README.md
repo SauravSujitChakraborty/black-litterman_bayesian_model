@@ -2,6 +2,8 @@
 
 This project was made by me during Oct'25, preserved and finally published on Apr 7, 2026 
 
+In this implementation, the Market Equilibrium acts as the Prior Distribution. The Investor Views represent the Likelihood, and the resulting Black-Litterman returns are the Posterior Distribution. This framework mathematically prevents the 'corner solutions' (extreme weights) common in standard mean-variance optimization.
+
 THEORY :
 
 1. The Core Problem: The "MVO Sensitivity" Trap
