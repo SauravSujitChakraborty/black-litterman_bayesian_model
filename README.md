@@ -27,6 +27,7 @@ THEORY :
 where, we have,
 
 λ: Risk Aversion Coefficient,
+
 Σ: Covariance Matrix.
  
 Variable Breakdown:
@@ -65,3 +66,18 @@ ii) ​HFT Optimization: For 500+ assets (S&P 500), we would replace inv with Ch
 ​i) Stability: BL produces intuitive, diversified portfolios. If you have no view on an asset, the model defaults to the Market Weight.
 
 ii) ​Confidence Weighting: Unlike standard models, BL allows us to mathematically state: "We are 90% sure about Tech, but only 10% sure about Energy."
+
+Packages required:-
+
+==> This project requires Python 3.x and the following scientific computing libraries:
+
+==> NumPy :- (>= 1.20.0): For vectorization and linear algebra operations.
+
+==> Pandas :- (>= 1.3.0): For data structuring and financial time-series management.
+
+Installation
+
+==> We can install the dependencies via pip:
+
+pip install numpy pandas
+
