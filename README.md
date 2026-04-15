@@ -1,4 +1,4 @@
-# black-litterman_bayesian_model 
+# black-litterman_bayesian_model  
 
 NOTE : 
 
@@ -61,13 +61,13 @@ i) ​The Bottleneck: The matrix inversions $(np.linalg.inv)$ for $(\tau\Sigma)$
 
 ii) ​HFT Optimization: For 500+ assets (S&P 500), we would replace inv with Cholesky Decomposition or LU Factorization to reduce floating-point errors and latency.
 
-​2. Advantage:
+​2. Advantage :
 
 ​i) Stability: BL produces intuitive, diversified portfolios. If you have no view on an asset, the model defaults to the Market Weight.
 
 ii) ​Confidence Weighting: Unlike standard models, BL allows us to mathematically state: "We are 90% sure about Tech, but only 10% sure about Energy."
 
-Packages required:-
+Packages required :
 
 ==> This project requires Python 3.x and the following scientific computing libraries:
 
@@ -75,9 +75,12 @@ Packages required:-
 
 ==> Pandas :- (>= 1.3.0): For data structuring and financial time-series management.
 
-Installation
+Installation :
 
-==> We can install the dependencies via pip:
+==> We can install the required dependencies via `pip`:
 
+```bash
 pip install numpy pandas
+
+
 
