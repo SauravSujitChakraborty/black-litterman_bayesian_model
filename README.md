@@ -8,13 +8,13 @@ In this implementation, the Market Equilibrium acts as the Prior Distribution. T
 
 THEORY :
 
-1. The Core Problem: The "MVO Sensitivity" Trap
+1. The Core Problem: The 'MVO Sensitivity' Trap
    
-==> ​Traditional Markowitz optimization (Mean-Variance) is notorious for being "Estimation-Error Maximizers." Small changes in expected return inputs lead to massive, unrealistic "all-or-nothing" swings in portfolio weights. In a production HFT or Asset Management environment, this is unacceptable.
+==> ​Traditional Markowitz optimization (Mean-Variance) is notorious for being 'Estimation-Error Maximizers'. Small changes in expected return inputs lead to massive, unrealistic 'all-or-nothing' swings in portfolio weights. In a production HFT or Asset Management environment, this is unacceptable.
 
 ​2. The Solution: Black-Litterman Bayesian Blending
 
-==> ​The Black-Litterman model solves this by using Bayesian Inference. It starts with a "Prior" (the Market Equilibrium) and updates it with "Investor Views" (the Alpha) based on the Confidence of those views.
+==> ​The Black-Litterman model solves this by using Bayesian Inference. It starts with a 'Prior' (the Market Equilibrium) and updates it with 'Investor Views' (the Alpha) based on the Confidence of those views.
 
 ​Mathematical Framework
 
@@ -32,9 +32,9 @@ where, we have,
  
 Variable Breakdown:
 
-==> $​\Pi$ (Pi): An $(N \times 1)$ vector of Implied Equilibrium Returns. This represents what the market "thinks" the returns should be to justify current prices.
+==> $​\Pi$ (Pi): An $(N \times 1)$ vector of Implied Equilibrium Returns. This represents what the market 'thinks' the returns should be to justify current prices.
 
-==> $​\lambda$ (Lambda): A Risk Aversion Coefficient (Scalar). It represents the market's "Risk-Reward" trade-off. A standard institutional value is 3.0.
+==> $​\lambda$ (Lambda): A Risk Aversion Coefficient (Scalar). It represents the market's 'Risk-Reward' trade-off. A standard institutional value is 3.0.
 
 ==>​ $\Sigma$ (Sigma): An $(N \times N)$ Covariance Matrix. This captures the volatility of each asset and the correlations between them.
 
@@ -46,7 +46,7 @@ B. The Bayesian Formula (The Blend)
 
  $$ \mu_{BL} = [(\tau\Sigma)^{-1} + P^T\Omega^{-1}P]^{-1} [(\tau\Sigma)^{-1}\Pi + P^T\Omega^{-1}Q] $$
 
-==> $​P$ (Pick Matrix): Maps your views to specific assets.
+==> $​P$ (Pick Matrix): Maps our views to specific assets.
 
 ==> $​\Omega$ (Uncertainty): A diagonal matrix representing the variance of each view (Confidence).
 
