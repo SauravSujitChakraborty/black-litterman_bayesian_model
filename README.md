@@ -75,9 +75,11 @@ Packages required :
 
 ==> Pandas :- (>= 1.3.0): For data structuring and financial time-series management.
 
-Installation :
+Cloning the repository:
 
-==> We can install the required dependencies via `pip`:
+git clone [https://github.com/SauravSujitChakraborty/black-litterman_bayesian_model.git](https://github.com/SauravSujitChakraborty/black-litterman_bayesian_model.git) 
+
+Installing the dependencies:
 
 ```bash
 pip install numpy pandas
