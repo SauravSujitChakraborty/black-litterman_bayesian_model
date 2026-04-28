@@ -12,11 +12,11 @@ THEORY :
    
 ==> ​Traditional Markowitz optimization (Mean-Variance) is notorious for being 'Estimation-Error Maximizers'. Small changes in expected return inputs lead to massive, unrealistic 'all-or-nothing' swings in portfolio weights. In a production HFT or Asset Management environment, this is unacceptable.
 
-​2. The Solution: Black-Litterman Bayesian Blending
+ ​2. The Solution: Black-Litterman Bayesian Blending
 
 ==> ​The Black-Litterman model solves this by using Bayesian Inference. It starts with a 'Prior' (the Market Equilibrium) and updates it with 'Investor Views' (the Alpha) based on the Confidence of those views.
 
-​Mathematical Framework
+I. ​Mathematical Framework
 
 ​A. Reverse Optimization (The Prior)
 
@@ -29,60 +29,68 @@ where, we have,
 λ: Risk Aversion Coefficient,
 
 Σ: Covariance Matrix.
- 
-Variable Breakdown:
 
-==> $​\Pi$ (Pi): An $(N \times 1)$ vector of Implied Equilibrium Returns. This represents what the market 'thinks' the returns should be to justify current prices.
+=> $​\Pi$ (Pi): An $(N \times 1)$ vector of Implied Equilibrium Returns. This represents what the market 'thinks' the returns should be to justify current prices.
 
-==> $​\lambda$ (Lambda): A Risk Aversion Coefficient (Scalar). It represents the market's 'Risk-Reward' trade-off. A standard institutional value is 3.0.
+=> $​\lambda$ (Lambda): A Risk Aversion Coefficient (Scalar). It represents the market's 'Risk-Reward' trade-off. A standard institutional value is 3.0.
 
-==>​ $\Sigma$ (Sigma): An $(N \times N)$ Covariance Matrix. This captures the volatility of each asset and the correlations between them.
+=>​ $\Sigma$ (Sigma): An $(N \times N)$ Covariance Matrix. This captures the volatility of each asset and the correlations between them.
 
-==> $​w_{mkt}$: An $(N \times 1)$ vector of Market Capitalization Weights.
+=> $​w_{mkt}$: An $(N \times 1)$ vector of Market Capitalization Weights.
 
 B. The Bayesian Formula (The Blend)
 
-==>The model calculates the new adjusted returns $(\mu_{BL})$ by blending the Market Prior with Investor Views (Q):
+==> The model calculates the new adjusted returns $(\mu_{BL})$ by blending the Market Prior with Investor Views (Q):
 
  $$ \mu_{BL} = [(\tau\Sigma)^{-1} + P^T\Omega^{-1}P]^{-1} [(\tau\Sigma)^{-1}\Pi + P^T\Omega^{-1}Q] $$
 
-==> $​P$ (Pick Matrix): Maps our views to specific assets.
+=> $​P$ (Pick Matrix): Maps our views to specific assets.
 
-==> $​\Omega$ (Uncertainty): A diagonal matrix representing the variance of each view (Confidence).
+=> $​\Omega$ (Uncertainty): A diagonal matrix representing the variance of each view (Confidence).
 
-==> $\tau$ (Scalar): Determines the weight given to the market prior versus the views.
+=> $\tau$ (Scalar): Determines the weight given to the market prior versus the views.
 
-Computational Complexity 
+II. Computational Complexity 
 
 ​1. Complexity: $O(A^3)$
+
 ​where $A$ is the number of assets.
 
-i) ​The Bottleneck: The matrix inversions $(np.linalg.inv)$ for $(\tau\Sigma)$ and $\Omega$.
+=> ​The Bottleneck: The matrix inversions $(np.linalg.inv)$ for $(\tau\Sigma)$ and $\Omega$.
 
-ii) ​HFT Optimization: For 500+ assets (S&P 500), we would replace inv with Cholesky Decomposition or LU Factorization to reduce floating-point errors and latency.
+=> ​HFT Optimization: For 500+ assets (S&P 500), we would replace inv with Cholesky Decomposition or LU Factorization to reduce floating-point errors and latency.
 
-​2. Advantage :
+3​. Advantage :
 
-​i) Stability: BL produces intuitive, diversified portfolios. If you have no view on an asset, the model defaults to the Market Weight.
+=​=> Stability: BL produces intuitive, diversified portfolios. If you have no view on an asset, the model defaults to the Market Weight.
 
-ii) ​Confidence Weighting: Unlike standard models, BL allows us to mathematically state: "We are 90% sure about Tech, but only 10% sure about Energy."
+==> ​Confidence Weighting: Unlike standard models, BL allows us to mathematically state: "We are 90% sure about Tech, but only 10% sure about Energy."
 
-Packages required :
+4. Packages required
+   
+==> NumPy :- The primary engine for the mathematical model. It handles the matrix inversions (np.linalg.inv), dot products (@), and diagonal matrix creation (np.diag) required to solve the Black-Litterman formula.
 
-==> This project requires Python 3.x and the following scientific computing libraries:
+==> Pandas :- Used for structured data management, allowing the system to handle asset labels (like 'Tech', 'Energy') and potentially import historical price datasets for covariance calculation.
 
-==> NumPy :- (>= 1.20.0): For vectorization and linear algebra operations.
+==> SciPy :- Provides the underlying high-performance linear algebra routines. In financial modeling, SciPy ensures that matrix inversions remain numerically stable, which is critical when dealing with the high-variance data found in market covariance matrices.
 
-==> Pandas :- (>= 1.3.0): For data structuring and financial time-series management.
+==> Matplotlib :- Used to visualize the "Bayesian Shift." It generates plots comparing the Market Implied Returns against the Adjusted Returns, visually demonstrating how the model incorporates investor confidence.
 
-Cloning the repository:
+==> PyPortfolioOpt :- Acts as the high-level financial framework. In this project, it provides the structural standard for implementing the Black-Litterman model, ensuring the manual matrix calculations align with industry-standard financial engineering practices.
 
-git clone [https://github.com/SauravSujitChakraborty/black-litterman_bayesian_model.git](https://github.com/SauravSujitChakraborty/black-litterman_bayesian_model.git) 
+5. Installation 
 
-Installing the dependencies:
+==> Cloning the repository :
 
 ```bash
-pip install numpy pandas
+git clone https://github.com/SauravSujitChakraborty/black-litterman_bayesian_model.git
+```
+
+==> Installing the dependencies :
+
+```bash
+pip install -r requirements.txt
+```
 
 
 
