@@ -7,12 +7,11 @@ This project was made by me during Oct'25, preserved and finally published on Ap
 In this implementation, the Market Equilibrium acts as the Prior Distribution. The Investor Views represent the Likelihood, and the resulting Black-Litterman returns are the Posterior Distribution. This framework mathematically prevents the 'corner solutions' (extreme weights) common in standard mean-variance optimization.
 
 THEORY :
-
 1. The Core Problem: The 'MVO Sensitivity' Trap
    
 ==> ​Traditional Markowitz optimization (Mean-Variance) is notorious for being 'Estimation-Error Maximizers'. Small changes in expected return inputs lead to massive, unrealistic 'all-or-nothing' swings in portfolio weights. In a production HFT or Asset Management environment, this is unacceptable.
 
- ​2. The Solution: Black-Litterman Bayesian Blending
+2. The Solution: Black-Litterman Bayesian Blending
 
 ==> ​The Black-Litterman model solves this by using Bayesian Inference. It starts with a 'Prior' (the Market Equilibrium) and updates it with 'Investor Views' (the Alpha) based on the Confidence of those views.
 
@@ -78,17 +77,37 @@ II. Computational Complexity
 
 ==> PyPortfolioOpt :- Acts as the high-level financial framework. In this project, it provides the structural standard for implementing the Black-Litterman model, ensuring the manual matrix calculations align with industry-standard financial engineering practices.
 
-Output
+5. Output
 
-Tabular output:
+==> Tabular output:
 
 ![Table](Black-Litterman_Bayesian_Model_Table.png)
 
-Graphical output:
+==> Graphical output:
 
 ![Graph](graph_black-litterman_bayesian_model.png)
 
-5. Installation & Cloning
+6. Results
+
+Asset Market Implied (Prior) Investor View BL Adjusted (Posterior)
+
+ Tech   | 6.60% | 8.00% | 7.85%
+
+ Energy | 6.90% | 2.00% | 4.64%
+
+  Bonds | 0.90% | 3.00% | 2.81%
+
+==> Analysis of the "Bayesian Shift"
+
+=> ​High Confidence Pull (Tech & Bonds): Because the confidence for Tech and Bonds was set high (10.0), the BL Adjusted return moved significantly toward the Investor View. For example, Tech shifted from the market's 6.60% all the way up to 7.85%.
+
+​=> The "Anchor" Effect (Energy): This is the model's most powerful feature. Despite having a very bearish view on Energy (2.00%), the low confidence level (1.0) caused the model to "distrust" the view. Instead of crashing the return to 2%, the model anchored it closer to the market equilibrium, resulting in a moderate 4.64%.
+
+7. ​Conclusion
+
+​The resulting portfolio avoids the "all-or-nothing" traps of traditional Mean-Variance Optimization. By using the Market Equilibrium as a starting point, the model ensures that unless the investor is extremely confident, the portfolio remains diversified and grounded in market reality.
+
+8. Installation & Cloning
 
 ==> Cloning the repository:
 
