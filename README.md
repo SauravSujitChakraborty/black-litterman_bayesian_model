@@ -78,7 +78,37 @@ II. Computational Complexity
 
 ==> PyPortfolioOpt :- Acts as the high-level financial framework. In this project, it provides the structural standard for implementing the Black-Litterman model, ensuring the manual matrix calculations align with industry-standard financial engineering practices.
 
-5. Installation 
+5. Installation & Cloning
+
+==> Cloning the repository:
+
+```bash
+git clone https://github.com/SauravSujitChakraborty/black-litterman_bayesian_model.git && cd black-litterman_bayesian_model
+```
+
+==> Create and activate environment
+
+```bash
+python -m venv venv
+# On macOS/Linux:
+source venv/bin/activate  
+# On Windows:
+venv\Scripts\activate
+```
+
+==> Installing the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+==> Running the Black Scholes Option Pricer:
+
+```bash
+python black-litterman_bayesian_model.py 
+```
+
+
 
 ==> Cloning the repository :
 
