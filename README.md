@@ -86,7 +86,7 @@ II. Computational Complexity
 git clone https://github.com/SauravSujitChakraborty/black-litterman_bayesian_model.git && cd black-litterman_bayesian_model
 ```
 
-==> Create and activate environment
+==> Create and activate environment:
 
 ```bash
 python -m venv venv
@@ -108,19 +108,6 @@ pip install -r requirements.txt
 python black-litterman_bayesian_model.py 
 ```
 
-
-
-==> Cloning the repository :
-
-```bash
-git clone https://github.com/SauravSujitChakraborty/black-litterman_bayesian_model.git
-```
-
-==> Installing the dependencies :
-
-```bash
-pip install -r requirements.txt
-```
 
 
 
