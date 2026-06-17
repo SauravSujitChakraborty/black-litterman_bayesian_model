@@ -65,7 +65,7 @@ II. Computational Complexity
 
 ==> ​Confidence Weighting: Unlike standard models, BL allows us to mathematically state: "We are 90% sure about Tech, but only 10% sure about Energy."
 
-4. Packages required
+4. Core packages
    
 ==> NumPy :- The primary engine for the mathematical model. It handles the matrix inversions (np.linalg.inv), dot products (@), and diagonal matrix creation (np.diag) required to solve the Black-Litterman formula.
 
